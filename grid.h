@@ -8,6 +8,9 @@ class Grid{
     int numCols;
     int cellSize;
     std::vector <Color> colors;
+    bool IsRowFull(int row);
+    void ClearRow(int row);
+    void MoveRowDown(int row, int numRows);
 
     public:
     Grid();
@@ -16,5 +19,6 @@ class Grid{
     void Draw();
     bool IsCellOutside(int row, int column);
     bool IsCellEmpty(int rows, int column);
+    int ClearFullRows();
     int grid[20][10];
 };
