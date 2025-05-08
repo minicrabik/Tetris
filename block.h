@@ -14,7 +14,11 @@ class Block{
     public:
     Block();
     void Draw();
+    void Move(int rows, int columns);
+    std::vector<Position> GetCellPositions();
     int id;
     std::map <int, std::vector <Position>> cells;
+    int rowOffset;
+    int columnOffset;
 
 };
