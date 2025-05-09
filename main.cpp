@@ -1,6 +1,7 @@
 #include <iostream>
 #include <raylib.h>
 #include "game.h"
+#include "color.h"
 
 double lastUpdateTime = 0;
 
@@ -18,8 +19,10 @@ using namespace std;
 int main () {
     Color darkBlue = {44, 44, 127, 255};
 
-    InitWindow(300, 600, "Tetris");
+    InitWindow(500, 620, "Tetris");
     SetTargetFPS(60);
+
+    Font font = LoadFontEx("Font/mobograf.ttf", 64, 0, 0);
 
     Game game = Game();
 
@@ -30,6 +33,15 @@ int main () {
         }
         BeginDrawing();
         ClearBackground(darkBlue);
+        DrawTextEx(font, "Score", {365, 15}, 38, 2, WHITE);
+        DrawRectangleRounded({320, 55, 170, 60}, 0.3, 6, lightBlue);
+        DrawTextEx(font, "Next", {365, 175}, 38, 2, WHITE);
+        DrawRectangleRounded({320, 215, 170, 180}, 0.3, 6, lightBlue);
+        
+        if (game.gameOver){
+            DrawTextEx(font, "GAME OVER", {320, 450}, 38, 2, WHITE);
+        }
+
         game.Draw();
         EndDrawing();
 
