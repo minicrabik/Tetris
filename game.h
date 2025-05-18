@@ -2,6 +2,7 @@
 
 #include "Grid.h"
 #include "blocks.cpp"
+#include "records.h"
 
 class Game {
     private:
@@ -28,7 +29,9 @@ class Game {
     void Draw();
     void HandleInput();
     void MoveBlockDown();
+    void HandleGameOver();
     bool gameOver;
     int score;
     Music music;
+    Records records;
 };

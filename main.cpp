@@ -39,7 +39,7 @@ int main() {
             }
 
             if (game.gameOver) {
-                records.Save(game.score); 
+                game.HandleGameOver();
                 gameState = GAME_OVER;
             }
         }

@@ -13,6 +13,7 @@ Game:: Game(){
     PlayMusicStream(music);
     rotateSound = LoadSound("Sounds/rotate.mp3");
     clearSound = LoadSound("Sounds/clear.mp3");
+    records = Records();
 };
 
 Game::~Game(){
@@ -178,4 +179,9 @@ void Game::UpdateScore(int linesCleared, int moveDownPoints)
     }
 
     score += moveDownPoints;
+}
+
+void Game::HandleGameOver() {
+    records.Save(score);
+    gameOver = true;
 }
